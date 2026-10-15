@@ -1,0 +1,81 @@
+[gd_scene format=4 uid="uid://biyycfd4rk4k2"]
+
+[ext_resource type="PackedScene" uid="uid://c1alqfs7myw02" path="res://entities/player.tscn" id="1_uwrxv"]
+[ext_resource type="TileSet" uid="uid://v02f6ddmdiak" path="res://tiles/terrain.tres" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://d2v12hewxg5nx" path="res://entities/camera.tscn" id="2_p57ef"]
+[ext_resource type="TileSet" uid="uid://cs50gypltxaov" path="res://tiles/decoration_behind.tres" id="3_iywne"]
+[ext_resource type="TileSet" uid="uid://bookps83bj0wo" path="res://tiles/decoration_front.tres" id="4_p57ef"]
+[ext_resource type="Texture2D" uid="uid://bqc6u36511rpa" path="res://sprites/persona/persona_idle.png" id="5_iywne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p57ef"]
+atlas = ExtResource("5_iywne")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5sy4"]
+atlas = ExtResource("5_iywne")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gee14"]
+atlas = ExtResource("5_iywne")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tnpc"]
+atlas = ExtResource("5_iywne")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtaks"]
+atlas = ExtResource("5_iywne")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4jr8w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p57ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5sy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gee14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tnpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtaks")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Game" type="Node2D" unique_id=369487560]
+
+[node name="Player" parent="." unique_id=1388732367 instance=ExtResource("1_uwrxv")]
+position = Vector2(15, 104)
+
+[node name="Camera" parent="." unique_id=527335159 instance=ExtResource("2_p57ef")]
+position = Vector2(63, 109)
+
+[node name="Tiles" type="Node2D" parent="." unique_id=1438535156]
+
+[node name="Terrain" type="TileMapLayer" parent="Tiles" unique_id=945599209]
+tile_map_data = PackedByteArray("AAAKAAcAAAAPAAMAAAAAAAcAAAADAAEAAAABAAcAAAAEAAEAAAACAAcAAAAFAAEAAAAWAAgAAAAPAAMAAAAZAAgAAAAPAAMAAAAbAAUAAAAPAAMAAAARAAgAAAAPAAMAAAATAAgAAAAPAAMAAAAMAAcAAAADAAEAAAANAAcAAAAEAAEAAAAOAAcAAAAFAAEAAAAFAAcAAAAJAAMAAAAGAAcAAAAKAAMAAAAHAAcAAAANAAMAAAAAAAgAAAADAAIAAAABAAgAAAAEAAIAAAACAAgAAAAFAAIAAAAMAAgAAAADAAIAAAANAAgAAAAEAAIAAAAOAAgAAAAFAAIAAAAAAAkAAAABAAMAAAAAAAoAAAADAAUAAAAAAAsAAAADAAUAAAAAAAwAAAABAAQAAAABAAkAAAACAAMAAAABAAoAAAAEAAQAAAABAAsAAAAEAAQAAAABAAwAAAAEAAYAAAACAAkAAAACAAMAAAACAAoAAAAEAAQAAAACAAsAAAAEAAQAAAACAAwAAAAEAAYAAAADAAkAAAACAAMAAAADAAoAAAAEAAQAAAADAAsAAAAEAAQAAAADAAwAAAAEAAYAAAAEAAkAAAACAAMAAAAEAAoAAAAEAAQAAAAEAAsAAAAEAAQAAAAEAAwAAAAEAAYAAAAFAAkAAAACAAMAAAAFAAoAAAAEAAQAAAAFAAsAAAAEAAQAAAAFAAwAAAAEAAYAAAAGAAkAAAACAAMAAAAGAAoAAAAEAAQAAAAGAAsAAAAEAAQAAAAGAAwAAAAEAAYAAAAHAAkAAAACAAMAAAAHAAoAAAAEAAQAAAAHAAsAAAAEAAQAAAAHAAwAAAAEAAYAAAAIAAkAAAACAAMAAAAIAAoAAAAEAAQAAAAIAAsAAAAEAAQAAAAIAAwAAAAEAAYAAAAJAAkAAAACAAMAAAAJAAoAAAAEAAQAAAAJAAsAAAAEAAQAAAAJAAwAAAAEAAYAAAAKAAkAAAACAAMAAAAKAAoAAAAEAAQAAAAKAAsAAAAEAAQAAAAKAAwAAAAEAAYAAAALAAkAAAACAAMAAAALAAoAAAAEAAQAAAALAAsAAAAEAAQAAAALAAwAAAAEAAYAAAAMAAkAAAACAAMAAAAMAAoAAAAEAAQAAAAMAAsAAAAEAAQAAAAMAAwAAAAEAAYAAAANAAkAAAACAAMAAAANAAoAAAAEAAQAAAANAAsAAAAEAAQAAAANAAwAAAAEAAYAAAAOAAkAAAAHAAMAAAAOAAoAAAAFAAUAAAAOAAsAAAAFAAUAAAAOAAwAAAAHAAQAAAA=")
+tile_set = ExtResource("2_lbhrr")
+
+[node name="Decoration_Behind" type="TileMapLayer" parent="Tiles" unique_id=755432856]
+tile_map_data = PackedByteArray("AAAKAAYAAAADAAUAAAAFAAYAAAAFAAUAAAAGAAYAAAAGAAUAAAAHAAYAAAAHAAUAAAALAAgAAAAPAAIAAAAMAAgAAAAQAAIAAAANAAgAAAARAAIAAAABAAgAAgAAAAAAAAACAAgAAgAAAAAAAAAAAAgAAgABAAAAAAAMAAYAAgACAAAAAAAOAAYAAgADAAAAAAABAAUAAAABAAEAAAANAAUAAAAFAAEAAAA=")
+tile_set = ExtResource("3_iywne")
+
+[node name="Decoration_Front" type="TileMapLayer" parent="Tiles" unique_id=1543934343]
+tile_map_data = PackedByteArray("AAAKAAYAAAADAAUAAAAFAAYAAAAFAAUAAAAGAAYAAAAGAAUAAAAHAAYAAAAHAAUAAAALAAgAAAAPAAIAAAAMAAgAAAAQAAIAAAANAAgAAAARAAIAAAABAAgAAgAAAAAAAAACAAgAAgAAAAAAAAAAAAgAAgABAAAAAAAMAAYAAgACAAAAAAAOAAYAAgADAAAAAAADAAcAAAABAAEAAAAIAAcAAAAJAAEAAAA=")
+tile_set = ExtResource("4_p57ef")
+
+[node name="Persona" type="Node" parent="." unique_id=375755008]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Persona" unique_id=1353895191]
+position = Vector2(187, 129)
+sprite_frames = SubResource("SpriteFrames_4jr8w")
+animation = &"idle"
+autoplay = "idle"
