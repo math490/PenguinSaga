@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PrimeiroJogo"
-run/main_scene="uid://ciuosx65dk5wh"
+run/main_scene="uid://cak7tf3ljjgns"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="uid://cgrfww0xvfokv"
 

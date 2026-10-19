@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cak7tf3ljjgns"]
+
+[ext_resource type="Texture2D" uid="uid://dunim8i71gyy3" path="res://sprites/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="1_fgkus"]
+[ext_resource type="Script" uid="uid://b0n0w2cthdq16" path="res://scripts/title_screen.gd" id="1_sa3yf"]
+
+[node name="TitleScreen" type="Control" unique_id=1908759551]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sa3yf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=238684710]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fgkus")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1486092622]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=37302313]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1192591445]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=413659425]
+layout_mode = 2
+text = "Start"
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1777266896]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
