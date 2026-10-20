@@ -21,6 +21,8 @@ enum PlayerState {
 @onready var hitbox_collision_shape: CollisionShape2D = $Hitbox/CollisionShape2D
 @onready var right_wall_detector: RayCast2D = $RightWallDetector
 @onready var left_wall_detector: RayCast2D = $LeftWallDetector
+@onready var attack_box: Area2D = $AttackBox
+@onready var attack_box_collision_shape: CollisionShape2D = $AttackBox/CollisionShape2D
 
 @export var max_speed = 180.0
 @export var acceleration = 400
@@ -125,6 +127,7 @@ func go_to_wall_state():
 func go_to_swimming_state():
 	status = PlayerState.swimming
 	anim.play("swimming")
+	set_swimming_collider()
 	velocity.y = min(velocity.y, 200)
 
 func go_to_dancing_state():
@@ -351,10 +354,22 @@ func set_normal_collider():
 	
 	hitbox_collision_shape.shape.size.y = 16
 	hitbox_collision_shape.position.y = 0
+	attack_box_collision_shape.position.y = 7.25
+
+func set_swimming_collider():
+	collision_shape_2d.shape.radius = 6
+	collision_shape_2d.shape.height = 12
+	
+	hitbox_collision_shape.shape.size.y = 12
+	attack_box_collision_shape.position.y = 6
+
+func _on_attack_box_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Hurtbox"):
+		attack_enemie(area)
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemies"):
-		hit_enemy(area)
+		hit_enemy()
 	elif area.is_in_group("Lethal_Area"):
 		hit_lethal_area()
 
@@ -367,16 +382,17 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 func _on_hitbox_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Water"):
 		jump_count = 0
+		set_normal_collider()
 		go_to_jump_state()
 
-func hit_enemy(area: Area2D):
-	if velocity.y > 0:
-		# inimigo morre
-		area.get_parent().take_damage()
-		go_to_jump_state()
-	else:
-		# player morre
-		go_to_dead_state()
+func hit_enemy():
+	# player morre
+	go_to_dead_state()
+
+func attack_enemie(area: Area2D):
+	# inimigo morre
+	area.get_parent().take_damage()
+	go_to_jump_state()
 
 func hit_lethal_area():
 	go_to_dead_state()

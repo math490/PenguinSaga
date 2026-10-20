@@ -14,6 +14,7 @@ const SPINNING_BONE = preload("uid://cheagtrbbk03s")
 @onready var ground_detector: RayCast2D = $GroundDetector
 @onready var player_detector: RayCast2D = $PlayerDetector
 @onready var bone_start_position: Node2D = $BoneStartPosition
+@onready var hurt_box: Area2D = $HurtBox
 
 const SPEED = 30.0
 const JUMP_VELOCITY = -400.0
@@ -49,6 +50,7 @@ func go_to_dead_state():
 	status = SkeletonState.dead
 	anim.play("dead")
 	hitbox.process_mode = Node.PROCESS_MODE_DISABLED
+	hurt_box.process_mode = Node.PROCESS_MODE_DISABLED
 	velocity = Vector2.ZERO
 
 func go_to_attack_state():

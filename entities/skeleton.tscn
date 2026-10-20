@@ -154,7 +154,10 @@ radius = 7.0
 height = 26.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jr8w"]
-size = Vector2(12, 26)
+size = Vector2(12, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pir0n"]
+size = Vector2(13, 2)
 
 [node name="Skeleton" type="CharacterBody2D" unique_id=1858348623]
 collision_layer = 8
@@ -173,8 +176,17 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2074150249]
-position = Vector2(2, 3)
+position = Vector2(2, 4)
 shape = SubResource("RectangleShape2D_4jr8w")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1145443170 groups=["Hurtbox"]]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1068114667]
+position = Vector2(2.5, -9)
+shape = SubResource("RectangleShape2D_pir0n")
+debug_color = Color(0.9836336, 0, 0.35556325, 0.41960785)
 
 [node name="WallDetector" type="RayCast2D" parent="." unique_id=1143331919]
 position = Vector2(0, 12)

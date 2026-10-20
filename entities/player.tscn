@@ -339,7 +339,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jr8w"]
-size = Vector2(12, 16)
+size = Vector2(12, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pir0n"]
+size = Vector2(13, 1.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=1388732367 groups=["Player"]]
 collision_layer = 2
@@ -347,7 +350,6 @@ collision_mask = 5
 script = ExtResource("1_b0kkn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=542235711]
-visible = false
 z_index = 2
 shape = SubResource("CapsuleShape2D_4jr8w")
 
@@ -358,12 +360,21 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1388780768 groups=["Player"]]
-visible = false
 collision_layer = 2
 collision_mask = 56
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1093225838]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_4jr8w")
+
+[node name="AttackBox" type="Area2D" parent="." unique_id=1690987363 groups=["Player"]]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox" unique_id=485666491]
+position = Vector2(0, 7.25)
+shape = SubResource("RectangleShape2D_pir0n")
+debug_color = Color(0.9817175, 0, 0.37272203, 0.41960785)
 
 [node name="Timer" type="Timer" parent="." unique_id=1880159943]
 one_shot = true
@@ -383,5 +394,6 @@ target_position = Vector2(-7, 0)
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="area_entered" from="AttackBox" to="." method="_on_attack_box_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SitTimer" to="." method="_on_sit_timer_timeout"]

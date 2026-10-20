@@ -28,6 +28,7 @@ Player=""
 Enemies=""
 Lethal_Area=""
 Water=""
+Hurtbox=""
 
 [input]
 
