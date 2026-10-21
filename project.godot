@@ -29,6 +29,7 @@ Enemies=""
 Lethal_Area=""
 Water=""
 Hurtbox=""
+Collectibles=""
 
 [input]
 
@@ -71,6 +72,7 @@ dance={
 2d_physics/layer_4="enemie"
 2d_physics/layer_5="lethal_area"
 2d_physics/layer_6="water"
+2d_physics/layer_7="collectibles"
 
 [physics]
 
