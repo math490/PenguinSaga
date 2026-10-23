@@ -15,6 +15,7 @@
 [ext_resource type="TileSet" uid="uid://cg2n62jcadm78" path="res://tiles/lava.tres" id="13_cf55d"]
 [ext_resource type="PackedScene" uid="uid://ddb8bpj2qpcma" path="res://entities/skeleton.tscn" id="13_dabdc"]
 [ext_resource type="PackedScene" uid="uid://dk7vp72gu62r3" path="res://entities/broken_block.tscn" id="15_di0nb"]
+[ext_resource type="PackedScene" uid="uid://85xdx5ytymsb" path="res://entities/coin.tscn" id="16_pyn53"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dabdc"]
 size = Vector2(20, 208)
@@ -185,5 +186,13 @@ shape = SubResource("RectangleShape2D_4jr8w")
 
 [node name="BrokenBlock" parent="." unique_id=659033467 instance=ExtResource("15_di0nb")]
 position = Vector2(668, 116)
+
+[node name="Coins" type="Node" parent="." unique_id=1283798368]
+
+[node name="Coin2" parent="Coins" unique_id=659845369 instance=ExtResource("16_pyn53")]
+position = Vector2(309, 105.00001)
+
+[node name="Coin" parent="Coins" unique_id=1566410422 instance=ExtResource("16_pyn53")]
+position = Vector2(210.00002, 185)
 
 [editable path="LevelEnd"]

@@ -43,6 +43,7 @@ animations = [{
 radius = 6.0
 
 [node name="Coin" type="Area2D" unique_id=1566410422 groups=["Collectibles"]]
+scale = Vector2(0.67692655, 0.77518815)
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("1_a182a")
@@ -54,3 +55,5 @@ frame_progress = 0.98951644
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2109446003]
 shape = SubResource("CircleShape2D_pir0n")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
