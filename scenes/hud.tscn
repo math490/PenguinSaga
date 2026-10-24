@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cpq8reub74wl5"]
+
+[ext_resource type="Texture2D" uid="uid://ca23w1dbi5t1q" path="res://sprites/Mini UI/PlayerIcon.png" id="1_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://dy1dbduuphblq" path="res://sprites/Mini UI/Timer_Coin_Numbers_Outlined (8 x 8).png" id="2_5ysmq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fi6k"]
+atlas = ExtResource("2_5ysmq")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4jr8w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fi6k")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HUD" type="CanvasLayer" unique_id=1453055932]
+
+[node name="Control" type="Control" parent="." unique_id=735732385]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1603787746]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=311463892]
+layout_mode = 2
+
+[node name="StatsContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=1393970804]
+layout_mode = 2
+
+[node name="LifeContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer/StatsContainer" unique_id=1546399969]
+layout_mode = 2
+
+[node name="PlayerLife" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/StatsContainer/LifeContainer" unique_id=1311676876]
+layout_mode = 2
+texture = ExtResource("1_oo0fn")
+
+[node name="HeartsContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer/StatsContainer/LifeContainer" unique_id=341457935]
+layout_mode = 2
+
+[node name="ScoreContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer/StatsContainer" unique_id=1215680409]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/StatsContainer/ScoreContainer" unique_id=1424978622]
+layout_mode = 2
+
+[node name="RightTopBox" type="VBoxContainer" parent="Control/MarginContainer" unique_id=621452464]
+layout_mode = 2
+
+[node name="CoinContainer" type="HBoxContainer" parent="Control/MarginContainer/RightTopBox" unique_id=1812817761]
+layout_mode = 2
+
+[node name="CoinLabel" type="Label" parent="Control/MarginContainer/RightTopBox/CoinContainer" unique_id=1483421710]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/MarginContainer/RightTopBox/CoinContainer" unique_id=956850930]
+sprite_frames = SubResource("SpriteFrames_4jr8w")
