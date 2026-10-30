@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://cs50gypltxaov" path="res://tiles/decoration_behind.tres" id="3_e4l1y"]
 [ext_resource type="PackedScene" uid="uid://cj01ngci3pjc" path="res://entities/level_end.tscn" id="3_ttii7"]
 [ext_resource type="Texture2D" uid="uid://bacsoej02n6r8" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/5 - Sky_color.png" id="4_o55n4"]
+[ext_resource type="PackedScene" uid="uid://cpq8reub74wl5" path="res://scenes/hud.tscn" id="4_q1idf"]
 [ext_resource type="Texture2D" uid="uid://ex45h13wc5he" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/4 - Floating_clouds.png" id="5_63ryy"]
 [ext_resource type="Texture2D" uid="uid://ckbrlwdu3o03r" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/3 - Background_clouds.png" id="6_wyuaa"]
 [ext_resource type="Texture2D" uid="uid://78blgarhr6sf" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/1 - Waters_version_1.png" id="7_ttii7"]
@@ -50,6 +51,8 @@ limit_bottom = 368
 
 [node name="Player" parent="." unique_id=1388732367 instance=ExtResource("1_mtmls")]
 position = Vector2(34, 154)
+
+[node name="HUD" parent="." unique_id=1453055932 instance=ExtResource("4_q1idf")]
 
 [node name="LevelEnd" parent="." unique_id=1087036331 instance=ExtResource("3_ttii7")]
 position = Vector2(1011, 168)

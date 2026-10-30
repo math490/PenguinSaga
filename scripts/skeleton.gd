@@ -47,6 +47,7 @@ func go_to_walk_state():
 	anim.play("walk")
 
 func go_to_dead_state():
+	GameManager.add_score(10)
 	status = SkeletonState.dead
 	anim.play("dead")
 	hitbox.process_mode = Node.PROCESS_MODE_DISABLED

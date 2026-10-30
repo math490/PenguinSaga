@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cc53rvipc5bj5" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/6 - Distant_trees.png" id="3_qm7rg"]
 [ext_resource type="Texture2D" uid="uid://cjh4dc8tmah46" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/5 - Tree_row_BG_2.png" id="4_0nboi"]
 [ext_resource type="Texture2D" uid="uid://cxcm0r4twjx6k" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/4 - Tree_row_BG_1.png" id="5_3knxq"]
+[ext_resource type="PackedScene" uid="uid://cpq8reub74wl5" path="res://scenes/hud.tscn" id="5_uwbj1"]
 [ext_resource type="Texture2D" uid="uid://bm0c6sabq3ait" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/3 - Bottom_leaf_piles.png" id="6_ercsu"]
 [ext_resource type="Texture2D" uid="uid://cg2ejq7qmpxyt" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/2 - Trees.png" id="7_j3csf"]
 [ext_resource type="Texture2D" uid="uid://cvcoe6impxufr" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/1 - Leaf_top.png" id="8_dabdc"]
@@ -82,6 +83,8 @@ position = Vector2(32, 165)
 
 [node name="BrokenBlock" parent="." unique_id=659033467 instance=ExtResource("15_di0nb")]
 position = Vector2(668, 116)
+
+[node name="HUD" parent="." unique_id=1453055932 instance=ExtResource("5_uwbj1")]
 
 [node name="LevelEnd" parent="." unique_id=1087036331 instance=ExtResource("12_j3csf")]
 position = Vector2(1011, 185)
