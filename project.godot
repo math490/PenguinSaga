@@ -25,6 +25,8 @@ window/size/viewport_width=400
 window/size/viewport_height=208
 window/size/mode=2
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://d4dcs31vohjwv"
+mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 
 [global_group]
 

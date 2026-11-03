@@ -73,6 +73,9 @@ metadata/_edit_vertical_guides_ = [1000.0]
 [node name="Skeleton" parent="." unique_id=1858348623 instance=ExtResource("13_dabdc")]
 position = Vector2(346, 93)
 
+[node name="Skeleton2" parent="." unique_id=1507130361 instance=ExtResource("13_dabdc")]
+position = Vector2(525, 173)
+
 [node name="Camera" parent="." unique_id=527335159 instance=ExtResource("9_0nboi")]
 position = Vector2(27, 167)
 limit_top = 0
