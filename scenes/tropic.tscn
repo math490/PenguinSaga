@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bye4rgi8ymoyu" path="res://sprites/Seasonal Tilesets/5 - Misc. universal tiles/distant-water.png" id="10_o3kau"]
 [ext_resource type="TileSet" uid="uid://ci6gis66rho40" path="res://tiles/underwater.tres" id="13_o3kau"]
 [ext_resource type="PackedScene" uid="uid://cj4kdp3ee1voc" path="res://entities/moving_platform.tscn" id="14_g24r1"]
+[ext_resource type="PackedScene" uid="uid://56thrslwftuj" path="res://scenes/pause_menu.tscn" id="16_rud7n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ttii7"]
 size = Vector2(20, 576)
@@ -153,6 +154,8 @@ position = Vector2(455, 144)
 
 [node name="Target" parent="MovingPlatform" index="1" unique_id=1678260198]
 position = Vector2(0, -119)
+
+[node name="PauseMenu" parent="." unique_id=120016902 instance=ExtResource("16_rud7n")]
 
 [editable path="LevelEnd"]
 [editable path="MovingPlatform"]

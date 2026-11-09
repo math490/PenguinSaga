@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://56thrslwftuj"]
+
+[ext_resource type="Script" uid="uid://b28dncbrke6b0" path="res://scripts/pause_menu.gd" id="1_myx47"]
+[ext_resource type="Theme" uid="uid://cjxvgorlx34vm" path="res://themes/btn_theme.tres" id="2_kukqi"]
+[ext_resource type="PackedScene" uid="uid://dj2f7svppfjf6" path="res://entities/cursor.tscn" id="3_kukqi"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_gkvm2"]
+action = &"escape"
+
+[sub_resource type="Shortcut" id="Shortcut_g8qwq"]
+events = [SubResource("InputEventAction_gkvm2")]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=120016902]
+process_mode = 3
+script = ExtResource("1_myx47")
+
+[node name="bg_overlay" type="ColorRect" parent="." unique_id=349373355]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27450982)
+
+[node name="menu_holder" type="VBoxContainer" parent="." unique_id=318460986]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -50.5
+offset_right = 50.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume_btn" type="Button" parent="menu_holder" unique_id=1867887644]
+layout_mode = 2
+theme = ExtResource("2_kukqi")
+shortcut = SubResource("Shortcut_g8qwq")
+text = "RESUME"
+
+[node name="menu_btn" type="Button" parent="menu_holder" unique_id=1413168328]
+layout_mode = 2
+theme = ExtResource("2_kukqi")
+text = "MENU"
+
+[node name="quit_btn" type="Button" parent="menu_holder" unique_id=1908696699]
+layout_mode = 2
+theme = ExtResource("2_kukqi")
+text = "QUIT GAME"
+
+[node name="Cursor" parent="." unique_id=709712901 instance=ExtResource("3_kukqi")]
+
+[connection signal="mouse_entered" from="menu_holder/resume_btn" to="." method="_on_resume_btn_mouse_entered"]
+[connection signal="mouse_exited" from="menu_holder/resume_btn" to="." method="_on_resume_btn_mouse_exited"]
+[connection signal="pressed" from="menu_holder/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="mouse_entered" from="menu_holder/menu_btn" to="." method="_on_menu_btn_mouse_entered"]
+[connection signal="mouse_exited" from="menu_holder/menu_btn" to="." method="_on_menu_btn_mouse_exited"]
+[connection signal="pressed" from="menu_holder/menu_btn" to="." method="_on_menu_btn_pressed"]
+[connection signal="mouse_entered" from="menu_holder/quit_btn" to="." method="_on_quit_btn_mouse_entered"]
+[connection signal="mouse_exited" from="menu_holder/quit_btn" to="." method="_on_quit_btn_mouse_exited"]
+[connection signal="pressed" from="menu_holder/quit_btn" to="." method="_on_quit_btn_pressed"]
