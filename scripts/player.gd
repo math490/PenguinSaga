@@ -11,13 +11,14 @@ enum PlayerState {
 	swimming,
 	dancing,
 	sitting,
-	dead
+	hurt
 }
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var timer: Timer = $Timer
 @onready var sit_timer: Timer = $SitTimer
+@onready var hitbox: Area2D = $Hitbox
 @onready var hitbox_collision_shape: CollisionShape2D = $Hitbox/CollisionShape2D
 @onready var right_wall_detector: RayCast2D = $RightWallDetector
 @onready var left_wall_detector: RayCast2D = $LeftWallDetector
@@ -62,8 +63,8 @@ func _physics_process(delta: float) -> void:
 			fall_state(delta)
 		PlayerState.slide:
 			slide_state(delta)
-		PlayerState.dead:
-			dead_state(delta)
+		PlayerState.hurt:
+			hurt_state(delta)
 		PlayerState.wall:
 			wall_state(delta)
 		PlayerState.swimming:
@@ -110,13 +111,20 @@ func go_to_slide_state():
 func exit_slide_state():
 	set_normal_collider()
 
-func go_to_dead_state():
-	if status == PlayerState.dead:
+func go_to_hurt_state():
+	hitbox.monitoring = false
+	if status == PlayerState.hurt:
 		return
-	status = PlayerState.dead
-	anim.play("dead")
+	status = PlayerState.hurt
+	anim.play("hurt")
 	velocity.x = 0
 	timer.start()
+	if anim.flip_h == false:
+		direction = -1
+	elif anim.flip_h == true:
+		direction = 1
+	velocity.x = 100 * direction
+	velocity.y = JUMP_VELOCITY
 
 func go_to_wall_state():
 	jump_count = 0
@@ -249,7 +257,7 @@ func slide_state(delta):
 		go_to_duck_state()
 		return
 
-func dead_state(delta):
+func hurt_state(delta):
 	apply_gravity(delta)
 	return
 
@@ -386,8 +394,8 @@ func _on_hitbox_body_exited(body: Node2D) -> void:
 		go_to_jump_state()
 
 func hit_enemy():
-	# player morre
-	go_to_dead_state()
+	GameManager.take_damage()
+	go_to_hurt_state()
 
 func attack_enemie(area: Area2D):
 	# inimigo morre
@@ -395,10 +403,12 @@ func attack_enemie(area: Area2D):
 	go_to_jump_state()
 
 func hit_lethal_area():
-	go_to_dead_state()
+	GameManager.take_damage()
+	go_to_hurt_state()
 
 func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()
+	go_to_idle_state()
+	hitbox.monitoring = true
 
 func _on_sit_timer_timeout() -> void:
 	sit = true

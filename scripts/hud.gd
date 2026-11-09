@@ -10,8 +10,11 @@ extends CanvasLayer
 func _ready() -> void:
 	GameManager.score_changed.connect(update_score)
 	GameManager.health_changed.connect(update_lives)
+	GameManager.coins_changed.connect(update_coins)
 	
+	update_score(GameManager.score)
 	update_lives(GameManager.current_health, GameManager.max_health)
+	update_coins(GameManager.coins)
 
 func update_coins(amount: int) -> void:
 	coin_label.text = str(amount).pad_zeros(3)

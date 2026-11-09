@@ -18,8 +18,8 @@ func add_score(amount: int) -> void:
 	score_changed.emit(score)
 
 func add_coin(amount: int = 1) -> void:
-	score += amount
-	score_changed.emit(score)
+	coins += amount
+	coins_changed.emit(coins)
 
 func take_damage(amount: int = 1) -> void:
 	current_health = clamp(current_health - amount, 0, max_health)

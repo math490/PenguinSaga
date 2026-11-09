@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bba3a3yxm17d5" path="res://sprites/1 - Penguin/Ducking (16 x 16).png" id="3_tjdhl"]
 [ext_resource type="Texture2D" uid="uid://bxrio2je0b3sj" path="res://sprites/1 - Penguin/Jump (16 x 16).png" id="4_tjdhl"]
 [ext_resource type="Texture2D" uid="uid://cu4kvwk8bo8h0" path="res://sprites/1 - Penguin/Falling (16 x 16).png" id="4_x08pd"]
-[ext_resource type="Texture2D" uid="uid://b2j00dvif3778" path="res://sprites/1 - Penguin/Lying_On_Ground (16 x 16).png" id="6_dchgp"]
 [ext_resource type="Texture2D" uid="uid://bdadk76wth5li" path="res://sprites/1 - Penguin/Waddling (16 x 16).png" id="9_0i614"]
 [ext_resource type="Texture2D" uid="uid://cm34xx716sya1" path="res://sprites/1 - Penguin/Sitting (16 x 16).png" id="9_kdgjc"]
 [ext_resource type="Texture2D" uid="uid://dsjtjysb50qqx" path="res://sprites/1 - Penguin/Looking_Off (16 x 16).png" id="9_oprnr"]
@@ -165,17 +164,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ef06p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_dchgp")
-}],
-"loop": 0,
-"name": &"dead",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("3_tjdhl")
 }],
 "loop": 1,
@@ -189,6 +177,14 @@ animations = [{
 "loop": 0,
 "name": &"fall",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ef06p")
+}],
+"loop": 0,
+"name": &"hurt",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -356,7 +352,7 @@ shape = SubResource("CapsuleShape2D_4jr8w")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1837211542]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_pir0n")
-animation = &"idle"
+animation = &"hurt"
 autoplay = "idle"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1388780768 groups=["Player"]]
@@ -377,6 +373,7 @@ shape = SubResource("RectangleShape2D_pir0n")
 debug_color = Color(0.9817175, 0, 0.37272203, 0.41960785)
 
 [node name="Timer" type="Timer" parent="." unique_id=1880159943]
+wait_time = 0.3
 one_shot = true
 
 [node name="SitTimer" type="Timer" parent="." unique_id=922477190]
